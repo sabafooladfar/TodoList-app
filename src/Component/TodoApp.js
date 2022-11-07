@@ -1,10 +1,12 @@
 import { useState } from "react";
 import "../App.css";
+import NavBar from "./NavBar";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
-  const addTodoHandler = (input) => {
+
+  const addTodo = (input) => {
     const newTodo = {
       id: Math.floor(Math.random() * 1000),
       text: input,
@@ -12,11 +14,12 @@ const TodoApp = () => {
     };
     setTodos([...todos, newTodo]);
   };
+
   const onComplete = (id) => {
     console.log(id);
     const index = todos.findIndex((item) => item.id == id);
     const selectedTodo = { ...todos[index] };
-    selectedTodo.isComplete = !selectedTodo.isComplete;
+    selectedTodo.isCompleted = !selectedTodo.isCompleted;
     const updatedTodos = [...todos];
     updatedTodos[index] = selectedTodo;
     setTodos(updatedTodos);
@@ -25,10 +28,27 @@ const TodoApp = () => {
     const filteredTodos = todos.filter((todo) => todo.id !== id);
     setTodos(filteredTodos);
   };
+  const updateTodo = (id, newValue) => {
+    const index = todos.findIndex((item) => item.id == id);
+    const selectedTodo = { ...todos[index] };
+    selectedTodo.text = newValue;
+    const updatedTodos = [...todos];
+    updatedTodos[index] = selectedTodo;
+    setTodos(updatedTodos);
+  };
+
   return (
-    <div className="container">
-      <TodoForm addTodoHandler={addTodoHandler} />
-      <TodoList todos={todos} onComplete={onComplete} onDelete={onDelete} />
+    <div>
+      <NavBar unCompletedTodos={todos.filter((t) => !t.isCompleted).length} />
+      <div className="container">
+        <TodoForm addTodoHandler={addTodo} />
+        <TodoList
+          todos={todos}
+          onComplete={onComplete}
+          onDelete={onDelete}
+          onUpdate={updateTodo}
+        />
+      </div>
     </div>
   );
 };

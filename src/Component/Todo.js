@@ -1,18 +1,10 @@
-const Todo = ({ todos, onComplete, onDelete }) => {
+const Todo = ({ todo, onComplete, onDelete, onEdit }) => {
   return (
-    <div>
-      {todos.map((todo) => {
-        return (
-          <div key={todo.id} className="todoItem">
-            <div className={todo.isComplete ? "completed" : null}>
-              {todo.text}
-            </div>
-            <button>Edit</button>
-            <button onClick={() => onComplete(todo.id)}>Complete</button>
-            <button onClick={() => onDelete(todo.id)}>Delete</button>
-          </div>
-        );
-      })}
+    <div className="todoItem">
+      <div className={todo.isCompleted ? "completed" : null}>{todo.text}</div>
+      <button onClick={onEdit}>Edit</button>
+      <button onClick={onComplete}>Complete</button>
+      <button onClick={onDelete}>Delete</button>
     </div>
   );
 };
