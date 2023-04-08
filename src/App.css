@@ -1,3 +1,6 @@
+body{
+    background-color: #cccccc37;
+}
 .title{
     text-align: center;
 }
@@ -6,27 +9,94 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
+}
+.appContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 .container{
-    border: 1px solid rgba(54, 52, 52, 0.507);
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 20px 30px;
     margin: 10px;
-    width: 80%;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 .todoItem{
     display: flex;
     justify-content: center;
     margin: 20px;
+    /* padding: 0 50px; */
     /* background: #000; */
 }
 .todoItem div{
-    width: 14rem;
+    width: 8rem;
     margin-right: 50px;
+ 
+    border-bottom: 1px solid #ccc;
+}
+.todoItem span{
+    padding: 5px;
+    width: 20px;
+    cursor: pointer;
+}
+.editBtn{
+    color: rgba(128, 0, 128, 0.724);
+    /* width: 100px; */
+    font-size:larger;
+}
+.checkBtn{
+    font-size:larger;
+    color: green;
+}
+.dltBtn{
+    color: red;
 }
 .completed{
     opacity: 0.5;
     text-decoration: line-through;
+}
+.nav{
+    display: flex;
+    /* width: 100%; */
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 250px;
+}
+.nav button{
+    padding: 5px 7px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin-left: 5px;
+background-color: rgba(128, 0, 128, 0.356);
+}
+.select{
+    width: 150px;
+    margin-left: 20px;
+}
+.addTodoInput{
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    padding: 7px;
+    margin-top: 10px;
+}
+.btn{
+    border: 1px solid #ccc;
+    border-radius:0 5px 5px 0;
+    outline: none;
+    padding: 7px;
+    background-color: rgba(128, 0, 128, 0.356);
 }

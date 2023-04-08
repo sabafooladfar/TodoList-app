@@ -62,7 +62,7 @@ const TodoApp = () => {
   };
 
   return (
-    <div>
+    <div className="appContainer">
       <NavBar
         unCompletedTodos={todos.filter((t) => !t.isCompleted).length}
         onSelect={selectChangeHandler}

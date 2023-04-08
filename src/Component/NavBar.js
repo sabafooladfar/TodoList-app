@@ -8,10 +8,11 @@ const filterOptions = [
 ];
 const NavBar = ({ unCompletedTodos, onSelect, selectedOption}) => {
   return (
-    <div>
+    <div className="nav">
       Uncompleted Todos : <button>{unCompletedTodos}</button>
       <div>
         <Select
+        className="select"
           onChange={onSelect}
           options={filterOptions}
           value={selectedOption}

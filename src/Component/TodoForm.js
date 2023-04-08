@@ -21,13 +21,14 @@ const TodoForm = (props) => {
   return (
     <form onSubmit={submitHandler}>
       <input
+      className="addTodoInput"
         type="text"
         value={input}
         onChange={changeHandler}
         placeholder={props.edit ? "update todo ... " : "add todo ..."}
         ref={inputRef}
       />
-      <button type="submit">{props.edit ? "Update" : "Add"}</button>
+      <button className="btn" type="submit">{props.edit ? "Update" : "Add"}</button>
     </form>
   );
 };
