@@ -5,12 +5,14 @@ import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 
 const TodoApp = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] =  useState(() => {
+    return JSON.parse(localStorage.getItem("todoList")) || []});
   const [filter, setFilter] = useState([]);
   const [selectedOption, setSelectedOption] = useState("All");
 
   useEffect(() => {
     filteredTodos(selectedOption.value);
+    localStorage.setItem("todoList", JSON.stringify(todos))
   }, [todos, selectedOption]);
 
   const addTodo = (input) => {

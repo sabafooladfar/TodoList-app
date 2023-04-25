@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 
 const TodoList = ({ todos, onComplete, onDelete, onUpdate }) => {
   const [edit, setEdit] = useState({ id: null, text: "", isCompleted: false });
+  
   const submitTodo = (newValue) => {
-    onUpdate(edit.id , newValue);
+    onUpdate(edit.id, newValue);
     setEdit({ id: null, text: "" });
   };
+  
+
+
   const renderTodos = () => {
     if (todos.length === 0) {
       return <p>add some todo</p>;
@@ -24,6 +28,9 @@ const TodoList = ({ todos, onComplete, onDelete, onUpdate }) => {
       );
     });
   };
+
+ 
+  
   return (
     <div>
       {edit.id ? (
